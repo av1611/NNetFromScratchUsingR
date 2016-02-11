@@ -41,11 +41,8 @@ NNet <- function(X, Y, step_size = 0.5, reg = 0.001, h = 10, niteration) {
     loss <- data_loss + reg_loss    
     # checking progress
     lossVector <- c()
-    if (i%%100 == 0 | i == niteration) { 
-      print(paste("iteration", i,': loss', loss))  
-      lossVector <- append(lossVector, loss)
-      hist(lossVector, col = 'dark green') 
-    }     
+    if (i%%100 == 0 | i == niteration) 
+      { print(paste("iteration", i,': loss', loss))  }     
     # compute the gradient on scores    
     dscores <- probs - Y    
     dscores <- dscores / N     
